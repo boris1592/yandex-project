@@ -1,14 +1,17 @@
-from django.shortcuts import render
-from django.views import View
+from django.views.generic import ListView
 
 from twittok.settings import POSTS_PER_PAGE
 
-from . import models
+from .models import Post
 
 
-class PostsView(View):
-    def get(self, request):
-        posts = models.Post.objects.raw(
+class RecommendedPostsView(ListView):
+    template_name = 'posts.html'
+    model = Post
+    context_object_name = 'posts'
+
+    def get_queryset(self):
+        return Post.objects.raw(
             '''
             select *, (
                 select count(posts_postrating.id)
@@ -33,6 +36,5 @@ class PostsView(View):
             order by factor desc
             limit %s
             ''',
-            [request.user.id, request.user.id, POSTS_PER_PAGE],
+            [self.request.user.id, self.request.user.id, POSTS_PER_PAGE],
         )
-        return render(request, 'posts.html', {'posts': posts})
