@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for post in posts %}
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.text }}</p>
+        {% comment %} next one for debug {% endcomment %}
+        <p>{{ post.factor }}</p>
+        {% if not forloop.last %}
+            <hr class='hr'/>
+        {% endif %}
+    {% endfor %}
+{% endblock content %}
