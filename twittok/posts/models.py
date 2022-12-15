@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 
 
 class Tag(models.Model):
@@ -7,11 +7,13 @@ class Tag(models.Model):
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=200)
-    text = models.TextField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=50)
+    text = models.TextField(max_length=300)
     tags = models.ManyToManyField(Tag)
 
 
-class TagStats(models.Model):
-    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+class PostRating(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    rating = models.SmallIntegerField(default=0)
