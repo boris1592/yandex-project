@@ -2,7 +2,6 @@ from pathlib import Path
 
 from decouple import config
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -27,6 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
+    'posts.apps.PostsConfig',
 ]
 
 MIDDLEWARE = [
@@ -99,3 +99,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Auth
 LOGIN_REDIRECT_URL = '/users/profile'
+LOGIN_URL = '/users/login'
+
+# Settings specific for this app
+POSTS_PER_PAGE = 10
