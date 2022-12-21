@@ -5,6 +5,7 @@ from django.db import models
 
 class Tag(models.Model):
     name = models.CharField(max_length=50)
+    is_default = models.BooleanField(default=False)
 
 
 class PostManager(models.Manager):
