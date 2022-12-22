@@ -12,7 +12,7 @@ from .models import Post, PostRating, Tag
 
 
 class RecommendedPostsView(ListView):
-    template_name = 'posts.html'
+    template_name = 'posts/recommended_posts.html'
     model = Post
     context_object_name = 'posts'
 
@@ -21,7 +21,7 @@ class RecommendedPostsView(ListView):
 
 
 class RateView(View):
-    def post(self, request, pk, rating):
+    def get(self, request, pk, rating):
         get_object_or_404(Post, pk=pk)
         post_rating = PostRating.objects.filter(
             post_id=pk, user_id=request.user.id
@@ -37,7 +37,7 @@ class RateView(View):
 
 class CreateRateView(FormView):
     form_class = CreatePostForm
-    template_name = 'create_post.html'
+    template_name = 'posts_new_posts.html'
     success_url = '/users/profile/'
 
     def form_valid(self, form):

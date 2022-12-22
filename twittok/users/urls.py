@@ -1,10 +1,10 @@
-from django.views.generic import TemplateView
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import path
-from django.contrib.auth.decorators import login_required
+from django.views.generic import TemplateView
 
-from .views import SignupView
 from .forms import LoginForm
+from .views import SignupView
 
 app_name = 'users'
 
@@ -13,7 +13,7 @@ urlpatterns = [
     path(
         'login/',
         LoginView.as_view(
-            template_name='form_page.html', authentication_form=LoginForm
+            template_name='auth/sign_in.html', authentication_form=LoginForm
         ),
         name='login',
     ),
