@@ -59,3 +59,12 @@ class CreateRateView(FormView):
         )
         post.tags.set(tags)
         return super().form_valid(form)
+
+
+class MyPostsView(ListView):
+    template_name = 'posts/my_posts.html'
+    model = Post
+    context_object_name = 'posts'
+
+    def get_queryset(self):
+        return Post.objects.filter(user__id=self.request.user.id)
