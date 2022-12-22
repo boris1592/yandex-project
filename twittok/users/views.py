@@ -1,14 +1,24 @@
-from django.views.generic import FormView
+from json import dumps
+
 from django.contrib.auth import login
 from django.contrib.auth.models import User
+from django.views.generic import FormView
+from posts.models import Tag
 
 from .forms import SignupForm
 
 
 class SignupView(FormView):
     form_class = SignupForm
-    template_name = 'form_page.html'
+    template_name = 'signup.html'
     success_url = '/users/profile'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['tags'] = dumps(
+            list(map(lambda t: t.name, Tag.objects.filter(is_default=True)))
+        )
+        return context
 
     def form_valid(self, form):
         user = User.objects.create_user(

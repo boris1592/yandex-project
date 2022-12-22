@@ -5,6 +5,12 @@ from django.db import models
 
 class Tag(models.Model):
     name = models.CharField(max_length=50)
+    is_default = models.BooleanField(default=False)
+
+
+class PreferredTag(models.Model):
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class PostManager(models.Manager):
@@ -17,14 +23,24 @@ class PostManager(models.Manager):
                 where posts_postrating.post_id = posts_post.id
                 and posts_postrating.user_id = %s
             ) as ratings_count, (
-                select sum((
+                select coalesce(sum((
                     select avg(posts_postrating.rating)
                     from posts_postrating
                     join posts_post_tags
                         on posts_post_tags.post_id = posts_postrating.post_id
                     where posts_post_tags.tag_id = posts_tag.id
                     and posts_postrating.user_id = %s
-                )) as rating
+                )) + (
+                    select count(id)
+                    from posts_preferredtag
+                    where posts_post_tags.id = posts_preferredtag.tag_id
+                    and posts_preferredtag.user_id = %s
+                ), (
+                    select count(id)
+                    from posts_preferredtag
+                    where posts_post_tags.id = posts_preferredtag.tag_id
+                    and posts_preferredtag.user_id = %s
+                ))
                 from posts_tag
                 join posts_post_tags on posts_tag.id = posts_post_tags.tag_id
                 where posts_post_tags.post_id = posts_post.id
@@ -34,7 +50,7 @@ class PostManager(models.Manager):
             order by factor desc
             limit %s
             ''',
-            [user_id, user_id, limit],
+            [user_id, user_id, user_id, user_id, limit],
         )
 
 

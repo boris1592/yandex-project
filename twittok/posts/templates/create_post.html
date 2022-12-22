@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'includes/form.html' %}
+<script>
+    const input = document.getElementById('tags')
+    new Tagify(input)
+</script>
+{% endblock %}

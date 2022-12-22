@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'includes/form.html' %}
+<script>
+    const tags = document.getElementById('tags')
+    const tagify = new Tagify(tags, {
+        enforceWhitelist: true,
+        whitelist: JSON.parse('{{ tags|escapejs }}')
+    })
+</script>
+{% endblock %}
