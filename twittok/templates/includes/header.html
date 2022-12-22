@@ -9,8 +9,7 @@
 
 				<ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
 					<li><a href="{% url 'posts:recommended' %}" class="nav-link px-2 deactivated {% active_link 'posts:recommended' 'activate'%}">Рекомендации</a></li>
-					<li><a href="{% url 'posts:my' %}" class="nav-link px-2 deactivated {% active_link 'posts:create' 'activate'%}">Мои посты</a></li>
-					<li><a href="#" class="nav-link px-2 deactivated">Новое</a></li>
+					<li><a href="{% url 'posts:my' %}" class="nav-link px-2 deactivated {% active_link 'posts:my' 'activate'%}">Мои посты</a></li>
 				</ul>
 
 
@@ -21,7 +20,7 @@
 					</div>
         {% else %}
 					<div class="dropdown text-end">
-						<a href="#"><img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle"></a>
+						<a href="{% url 'users:logout' %}"><img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle"></a>
 					</div>
         {% endif %}
 			</div>

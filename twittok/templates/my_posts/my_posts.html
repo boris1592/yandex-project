@@ -9,30 +9,30 @@
 <main>
 	<div class="container">
 		<div class="add">
-			<a href="">Добавить пост</a>
+			<a href={% url 'posts:create' %}>Добавить пост</a>
 		</div>
 		<div>
 			<div class="post__items">
 				{% for post in posts %}
-				<div class="post__item">
-					<div class="logo">
-						<a href="#"><p>{{post.user.name}}</p></a>
-					</div>
-					<div class="text_post">{{post.text}}</div>
-					<div class="under_post">
-						<div class="likes">
-							<div class="like">
-								<img class="like_svg" src="{% static 'img/like.svg' %}" alt="">
-								<p>12</p>
-							</div>
-							<div class="dislike">
-								<img class="dislike_svg" src="{% static 'img/like.svg' %}" alt="">
-								<p>12</p>
-							</div>
+					<div class="post__item">
+						<div class="logo">
+							<p>{{post.user.name}}</p>
 						</div>
-						<button class="edit">Edit</button>
+						<div class="text_post">{{post.text}}</div>
+						<div class="under_post">
+							<div class="likes">
+								<div class="like">
+									<img class="like_svg" src="{% static 'img/like.svg' %}" alt="">
+									<p>12</p>
+								</div>
+								<div class="dislike">
+									<img class="dislike_svg" src="{% static 'img/like.svg' %}" alt="">
+									<p>12</p>
+								</div>
+							</div>
+							<button class="edit">Edit</button>
+						</div>
 					</div>
-				</div>
 				{% endfor %}
 			</div>
 		</div>

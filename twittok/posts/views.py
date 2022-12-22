@@ -37,7 +37,7 @@ class RateView(View):
 
 class CreateRateView(FormView):
     form_class = CreatePostForm
-    template_name = 'my_posts/my_posts.html'
+    template_name = 'create_post.html'
     success_url = '/users/profile/'
 
     def form_valid(self, form):
@@ -62,7 +62,7 @@ class CreateRateView(FormView):
 
 
 class MyPostsView(ListView):
-    template_name = 'posts/my_posts.html'
+    template_name = 'my_posts/my_posts.html'
     model = Post
     context_object_name = 'posts'
 

@@ -12,9 +12,9 @@
 		<div id="carouselControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
 			<div class="carousel-inner post__items">
 				{% for post in posts %}
-				<div class="carousel-item active post__item">
+				<div class="carousel-item {% if forloop.first %}active{% endif %} post__item">
 					<div class="logo">
-						<a href="#"><p>{{post.user.name}}</p></a>
+						<p>{{post.user.first_name}}</p>
 					</div>
 					<div class="text_post">{{post.text}}</div>
 					<div class="likes">
