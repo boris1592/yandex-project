@@ -10,7 +10,7 @@ from .forms import SignupForm
 
 class SignupView(FormView):
     form_class = SignupForm
-    template_name = 'signup.html'
+    template_name = 'auth/sign_up.html'
     success_url = '/users/profile'
 
     def get_context_data(self, **kwargs):

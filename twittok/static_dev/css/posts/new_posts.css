@@ -1,0 +1,116 @@
+/* --------------------HEADER---------------------------------------------------*/
+
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.active {
+    color: red;
+}
+
+header .container ul li .activate {
+    color: rgb(100, 100, 100);
+}
+
+div .sign_up {
+    background-color: #eb2a6a;
+}
+
+/* ------------------------------------------------------------------------------ */
+
+main {
+    display: flex;
+    align-items: center;
+}
+
+.carousel-inner {
+    padding: 15px;
+    border: 1px;
+    border-radius: 2px;
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+    border-radius: 10px;
+}
+
+.carousel-inner .active {
+    color: black;
+}
+
+.post__items {
+    min-height: 200px;
+}
+
+.logo {
+    display: flex;
+    font-size: 20px;
+}
+
+.logo a {
+    margin-bottom: 0;
+    line-height: 32px;
+    text-decoration: none;
+    color: black;
+}
+
+.logo a:nth-child(2) {
+    margin-left: 10px;
+}
+
+.logo a:hover {
+    text-decoration: underline;
+    color: rgb(28, 28, 28);
+}
+
+.likes {
+    display: flex;
+    margin-top: 10px;
+}
+
+.likes div {
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.likes div p {
+    margin-bottom: 0;
+}
+
+.like_svg {
+    max-width: 30px;
+    min-width: 30px;
+}
+
+.dislikes div p {
+    margin-bottom: 0;
+}
+
+.dislike_svg {
+    max-width: 30px;
+    min-width: 30px;
+    rotate: 180deg;
+}
+
+.arrow {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.arrow a {
+    border: none;
+    background-color: rgb(170, 170, 170);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* ----------------------SLIDER--------------------*/

@@ -1,0 +1,48 @@
+.cat_header {
+	max-width: 40px;
+}
+
+.footer_about {
+	text-decoration: none;
+	color: blue;
+	text-align: center;
+}
+
+.footer_p {
+	text-align: center;
+	font-size: 30px;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+.active {
+	color: red;
+}
+
+header .container ul li .deactivated {
+	color: white;
+}
+
+header .container ul li .deactivated:hover {
+	color: rgb(100, 100, 100);
+}
+
+header .container ul li .activate {
+	color: rgb(100, 100, 100);
+}
+
+div .sign_up {
+	background-color: #eb2a6a;
+}

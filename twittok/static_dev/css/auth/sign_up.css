@@ -1,0 +1,27 @@
+main {
+	background-size: cover;
+	margin-top: -17px;
+}
+
+
+.gradient-custom-4 {
+	/* fallback for old browsers */
+	background: #eb2a6a;
+}
+
+.btn-success {
+	border-color: white;
+}
+
+.shadows {
+	box-shadow: 0 0 10px 5px rgb(200, 200, 200);
+}
+
+.round {
+	border-radius: 25px;
+}
+
+.right {
+	justify-content: flex-end;
+	margin-top: 10%;
+}

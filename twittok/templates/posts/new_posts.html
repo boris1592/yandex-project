@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/posts/new_posts.css' %}">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+{% endblock link %}
+
+
+{% block content %}
+<main>
+	<div class="container">
+		<div id="carouselControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+			<div class="carousel-inner post__items">
+				<div class="carousel-item active post__item">
+					<div class="logo">
+						<a href="#"><img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle"></a>
+						<a href="#"><p>Username</p></a>
+					</div>
+					<div class="text_post">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure est modi fugit dolor cupiditate veritatis eius exercitationem! Architecto, magni. Error quae quia sunt ipsum facere ratione vero optio nulla ad!
+					Sunt unde voluptatum error nostrum sit magnam laboriosam minima molestias sed.</div>
+					<div class="likes">
+						<div class="like">
+							<img class="like_svg" src="{% static 'img/like.svg' %}" alt="">
+							<p>12</p>
+						</div>
+						<div class="dislike">
+							<img class="dislike_svg" src="{% static 'img/like.svg' %}" alt="">
+							<p>12</p>
+						</div>
+					</div>
+				</div>
+				<div class="carousel-item post__item" >
+					<div class="logo">
+						<a href="#"><img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle"></a>
+						<a href="#"><p>Username</p></a>
+					</div>
+					<div class="text_post">Это тестовый пост. Самый крутой сайт на свете, которым будет пользоваться каждый!</div>
+					<div class="likes">
+						<div class="like">
+							<img class="like_svg" src="{% static 'img/like.svg' %}" alt="">
+							<p>12</p>
+						</div>
+						<div class="dislike">
+							<img class="dislike_svg" src="{% static 'img/like.svg' %}" alt="">
+							<p>12</p>
+						</div>
+					</div>
+				</div>
+				<div class="carousel-item post__item">
+					<div class="logo">
+						<a href="#"><img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle"></a>
+						<a href="#"><p>Username</p></a>
+					</div>
+					<div class="text_post">Тут тоже чей-то пост, но пока так. Смотрите второй пост.</div>
+					<div class="likes">
+						<div class="like">
+							<img class="like_svg" src="{% static 'img/like.svg' %}" alt="">
+							<p>12</p>
+						</div>
+						<div class="dislike">
+							<img class="dislike_svg" src="{% static 'img/like.svg' %}" alt="">
+							<p>12</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--<button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Предыдущий</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Следующий</span>
+			</button>
+		-->
+			<div class="arrow">
+				<a class="arrow_left" href="#" role="button" type="button" data-bs-target="#carouselControls" data-bs-slide="prev"><img src="{% static 'img/arrow-left.svg' %}" alt=""></a>
+				<a class="arrow_right" href="#" role="button" type="button" data-bs-target="#carouselControls" data-bs-slide="next"><img src="{% static 'img/arrow-right.svg' %}" alt=""></a>
+			</div>
+		</div>
+	</div>
+</main>
+{% endblock %}
+
+{% block script %}
+{% endblock script %}
