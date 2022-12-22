@@ -11,13 +11,12 @@
 	<div class="container">
 		<div id="carouselControls" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
 			<div class="carousel-inner post__items">
+				{% for post in posts %}
 				<div class="carousel-item active post__item">
 					<div class="logo">
-						<a href="#"><img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle"></a>
-						<a href="#"><p>Username</p></a>
+						<a href="#"><p>{{post.user.name}}</p></a>
 					</div>
-					<div class="text_post">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure est modi fugit dolor cupiditate veritatis eius exercitationem! Architecto, magni. Error quae quia sunt ipsum facere ratione vero optio nulla ad!
-					Sunt unde voluptatum error nostrum sit magnam laboriosam minima molestias sed.</div>
+					<div class="text_post">{{post.text}}</div>
 					<div class="likes">
 						<div class="like">
 							<img class="like_svg" src="{% static 'img/like.svg' %}" alt="">
@@ -29,40 +28,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="carousel-item post__item" >
-					<div class="logo">
-						<a href="#"><img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle"></a>
-						<a href="#"><p>Username</p></a>
-					</div>
-					<div class="text_post">Это тестовый пост. Самый крутой сайт на свете, которым будет пользоваться каждый!</div>
-					<div class="likes">
-						<div class="like">
-							<img class="like_svg" src="{% static 'img/like.svg' %}" alt="">
-							<p>12</p>
-						</div>
-						<div class="dislike">
-							<img class="dislike_svg" src="{% static 'img/like.svg' %}" alt="">
-							<p>12</p>
-						</div>
-					</div>
-				</div>
-				<div class="carousel-item post__item">
-					<div class="logo">
-						<a href="#"><img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle"></a>
-						<a href="#"><p>Username</p></a>
-					</div>
-					<div class="text_post">Тут тоже чей-то пост, но пока так. Смотрите второй пост.</div>
-					<div class="likes">
-						<div class="like">
-							<img class="like_svg" src="{% static 'img/like.svg' %}" alt="">
-							<p>12</p>
-						</div>
-						<div class="dislike">
-							<img class="dislike_svg" src="{% static 'img/like.svg' %}" alt="">
-							<p>12</p>
-						</div>
-					</div>
-				</div>
+				{% endfor %}
 			</div>
 			<div class="arrow">
 				<a class="arrow_left" href="#" role="button" type="button" data-bs-target="#carouselControls" data-bs-slide="prev"><img src="{% static 'img/arrow-left.svg' %}" alt=""></a>
@@ -72,6 +38,3 @@
 	</div>
 </main>
 {% endblock %}
-
-{% block script %}
-{% endblock script %}

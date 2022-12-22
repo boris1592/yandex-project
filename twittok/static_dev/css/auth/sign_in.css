@@ -1,0 +1,30 @@
+main {
+	background-size: cover;
+	margin-top: -17px;
+}
+
+
+.gradient-custom-4 {
+	background: #eb2a6a;
+	color: white;
+}
+.gradient-custom-4:hover {
+	border: 1px solid #eb2a6a
+}
+
+.btn-success {
+	border-color: white;
+}
+
+.shadows {
+	box-shadow: 0 0 10px 5px #49a1ff;
+}
+
+.round {
+	border-radius: 25px;
+}
+
+.right {
+	justify-content: flex-end;
+	margin-top: 10%;
+}
