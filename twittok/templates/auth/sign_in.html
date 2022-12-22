@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static "bootstrap\css\bootstrap.min.css" %}">
+	<link rel="stylesheet" href="{% static "css\base.css" %}">
+	<link rel="stylesheet" href="{% static 'css/auth/sign_in.css' %}">
+	<title>TwitterTok</title>
+</head>
+
+<body>
+	<main style="background-image: url('{% static 'img/background_desctop.jpg' %}')">
+		<div class="mask d-flex align-items-center h-100 gradient-custom-3 round">
+			<div class="container h-100">
+				<div class="row d-flex h-100 right">
+					<div class="col-12 col-md-9 col-lg-7 col-xl-6">
+						<div class="card shadows">
+							<div class="card-body p-5">
+								<h2 class="text-uppercase text-center mb-5">Вход</h2>
+
+								<form method="post">
+									{% csrf_token %}
+									
+									{{ form }}
+
+									<div class="d-flex justify-content-center">
+										<div class="d-flex justify-content-center">
+											<input class="btn btn-success btn-block btn-lg gradient-custom-4" type="submit" value="Войти">
+										</div>
+									</div>
+
+									<p class="text-center text-muted mt-5 mb-0">Нет аккаунта? <a href="{% url 'users:signup' %}"
+											class="fw-bold text-body"><u>Зарегистрируйтесь здесь</u></a></p>
+
+									<p class="text-center text-muted mt-5 mb-0">Если хотите продолжить без входа, перейдите на главную: <a href="{% url 'posts:recommended' %}"
+											class="fw-bold text-body"><u>Главная</u></a></p>
+
+								</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</main>
+</body>
+
+</html>
